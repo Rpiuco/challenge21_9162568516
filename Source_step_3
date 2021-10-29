@@ -1,0 +1,3 @@
+##Source_step_3 -> Gera relatorios relativos aos arquivos fastQ das amostras. Visa a obtencao de propriedades para checagem de qualidade e caracteristicas normais das amostras.
+fastqc rawData/amostra-lbb_R1.fq.gz
+fastqc rawData/amostra-lbb_R2.fq.gz

@@ -1,0 +1,8 @@
+##Source_step_6 - Instalacao da ferramenta bcftools. Seguido pelo calling de variantes do alinhamento
+conda install -c bioconda bcftools
+
+bcftools mpileup -O b -o bcfResult/amostra-lbb.bcf -f genome/grch38.chr22.fasta alignment/amostra-lbb.paired.sorted.bam
+
+bcftools call -m -v -o vcfResult/amostra-lbb.vcf bcfResult/amostra-lbb.bcf
+
+vcfutils.pl varFilter vcfResult/amostra-lbb.vcf  > vcfResult/amostra-lbb_final_variants.vcf

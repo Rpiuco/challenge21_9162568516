@@ -1,0 +1,12 @@
+##Source_step_1 -> Cria o diretorio principal e sub-diretorios para organizacao dos resultados
+randomName="challenge21_";
+for n in {1..10};do randomName=$randomName$((1 + RANDOM % 9)); done
+mkdir $randomName
+
+mkdir $randomName/genome/
+mkdir $randomName/rawData/
+mkdir $randomName/alignment/
+mkdir $randomName/bcfResult/
+mkdir $randomName/vcfResult/
+
+cd $randomName/

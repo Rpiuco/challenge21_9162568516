@@ -1,0 +1,13 @@
+##Source_step_4 -> download e instalacao das bibliotecas para acesso as ferramentas necessarias
+wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh
+wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
+
+##Gera um arquivo para validacao do download correto das bibliotecas acima
+printf "1ea2f885b4dbc3098662845560bc64271eb17085387a70c2ba3f29fff6f8d52f\tMiniconda3-py39_4.10.3-Linux-x86_64.sh" > Miniconda3-py39_4.10.3-Linux-x86_64.sh.sha256sum
+printf "2751ab3d678ff0277ae80f9e8a74f218cfc70fe9a9cdc7bb1c137d7e47e33d53\tAnaconda3-2021.05-Linux-x86_64.sh" > Anaconda3-2021.05-Linux-x86_64.sh.sha256sum
+
+##funcao para validacao e resultado encontrado
+sha256sum -c "Miniconda3-py39_4.10.3-Linux-x86_64.sh.sha256sum"
+>>Miniconda3-py39_4.10.3-Linux-x86_64.sh: OK
+sha256sum -c "Anaconda3-2021.05-Linux-x86_64.sh.sha256sum"
+>>Anaconda3-2021.05-Linux-x86_64.sh: OK

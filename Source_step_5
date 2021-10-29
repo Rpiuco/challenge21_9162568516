@@ -1,0 +1,14 @@
+##Source_step_5 - Instalacao da ferramenta de alinhamento BWA. Posterior geracao do arquivo de index do genoma (no caso apenas o cromossomo 22) utilizado para realizar o alinhamento das amostras
+sudo install apt bwa
+
+gzip -d genome/grch38.chr22.fasta.gz
+
+bwa index genome/grch38.chr22.fasta
+
+## Alinhamento das amostras seguido de formatacao do alinhamento para o formato .bam e 
+## sorting dos alinhamentos para reducao do tamanho ocupado pelos arquivos de resultado
+bwa mem -t 5 genome/grch38.chr22.fasta rawData/amostra-lbb_R1.fq.gz rawData/amostra-lbb_R2.fq.gz | samtools view -@ 4 -b - > alignment/amostra-lbb.paired.bam
+samtools sort -@ 4 -o alignment/amostra-lbb.paired.sorted.bam alignment/amostra-lbb.paired.bam
+
+## funcao de retorno de propriedades relativas ao alinhamento
+samtools flagstat alignment/amostra-lbb.paired.sorted.bam
